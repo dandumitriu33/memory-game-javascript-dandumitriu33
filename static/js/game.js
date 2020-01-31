@@ -1,7 +1,7 @@
 function main() {
     let cells = document.querySelectorAll('.col.order-sm-3');
     console.log(cells);
-    let listOfNumbers = generateList();
+    let listOfNumbers = generateListAwesome();
     addClickEvent();
 
 
@@ -22,6 +22,39 @@ function main() {
         shuffle(randomValues);
         console.log('rv', randomValues);
         return randomValues
+    }
+
+    function generateListAwesome() {
+        let hiddenImages = cells.length / 2;
+        let randomValues = [];
+        let fullAwesomeList = ['<i style="font-size: 70px" class="fab fa-affiliatetheme"></i>',
+                                '<i style="font-size: 70px" class="fas fa-air-freshener"></i>',
+                                '<i style="font-size: 70px" class="fas fa-allergies"></i>',
+                                '<i style="font-size: 70px" class="fas fa-ambulance"></i>',
+                                '<i style="font-size: 70px" color="green" class="fab fa-android"></i>',
+                                '<i style="font-size: 70px" class="fab fa-apple"></i>',
+                                '<i style="font-size: 70px" class="fas fa-atom"></i>',
+                                '<i style="font-size: 70px" class="fas fa-bell"></i>',
+                                '<i style="font-size: 70px" class="fas fa-biohazard"></i>',
+                                '<i style="font-size: 70px" class="fab fa-bitcoin"></i>',
+                                '<i style="font-size: 70px" class="fas fa-bone"></i>',
+                                '<i style="font-size: 70px" class="fas fa-bug"></i>',
+                                '<i style="font-size: 70px" class="fas fa-cookie-bite"></i>',
+                                '<i style="font-size: 70px" class="fas fa-cloud-upload-alt"></i>', //14
+                                '<i style="font-size: 70px" class="fas fa-clock"></i>',
+                                '<i style="font-size: 70px" class="fas fa-cat"></i>',
+                                '<i style="font-size: 70px" class="fas fa-dragon"></i>',
+                                '<i style="font-size: 70px" class="fas fa-dollar-sign"></i>',
+                                '<i style="font-size: 70px" class="fab fa-dev"></i>',
+                                '<i style="font-size: 70px" class="far fa-eye"></i>'
+        ];
+        for (let i=0; i<hiddenImages; i++) {
+            randomValues.push(fullAwesomeList[i]);
+        }
+        randomValues.push(...randomValues);
+        shuffle(randomValues);
+        shuffle(randomValues);
+        return randomValues;
     }
 
 
@@ -87,25 +120,6 @@ function main() {
         }
     }
 
-    function pauseBrowser(millis) {
-        var date = Date.now();
-        var curDate = null;
-        do {
-            curDate = Date.now();
-        } while (curDate - date < millis);
-    }
-
-    function flipBackCard1(index) {
-        let cardToFlip = document.getElementById(index);
-        console.log(cardToFlip);
-        cardToFlip.innerHTML = 'vrooom';
-    }
-
-    function flipBackCard2(index) {
-        let cardToFlip = document.getElementById(index);
-        console.log(cardToFlip);
-        cardToFlip.innerHTML = 'vrooom';
-    }
 
 
 } // closes main()
